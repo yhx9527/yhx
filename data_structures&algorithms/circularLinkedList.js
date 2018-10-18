@@ -61,7 +61,7 @@ function advance(n) {
     var flag = false    //是否循环过一圈
     while(n--) {
         curNode = curNode.next
-        if(curNode.el = 'head'){
+        if(curNode.el === 'head'){
             flag = true
         }
     }
