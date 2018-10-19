@@ -13,7 +13,7 @@ const CLList = require('./circularLinkedList')
 
 var persons = new CLList()
 var start = 0
-while(start < 41){
+while(start < 30){
     ++start
     persons.insert(start, start-1)
 }
@@ -36,4 +36,4 @@ function kill(persons, m) {
     }
     persons.display()    //打印出剩下的人
 }
-kill(persons, 3)
+kill(persons, 9)
