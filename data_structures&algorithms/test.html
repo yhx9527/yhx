@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        /*循环链表*/
+
+// 节点类
+function Node(el) {
+    this.el = el
+    this.next = null
+}
+
+function CLList() {
+    this.head = new Node('head')
+    this.pos = this.head
+    this.head.next = this.head
+    this.find = find
+    this.findPre = findPre
+    this.insert = insert
+    this.remove = remove
+    this.display = display
+    this.advance = advance
+    this.show = show
+}
+
+function find(item) {
+    var curNode = this.head
+    while (curNode.el !== item && curNode.next.el !== 'head') {
+        curNode = curNode.next
+    }
+    return curNode
+}
+function findPre(item) {
+    var curNode = this.head
+    while(curNode.next && curNode.next.el !== item && curNode.next.el !== 'head') {
+        curNode = curNode.next
+    }
+    return curNode
+}
+
+function insert(newEl, item) {
+    var node = new Node(newEl)
+    var curNode = this.find(item)
+    node.next = curNode.next
+    curNode.next = node
+}
+
+function display() {
+    console.log('head->')
+    var curNode = this.head
+    while(curNode.next.el !== 'head') {
+        console.log(curNode.next.el + '->')
+        curNode = curNode.next
+    }
+    console.log()
+}
+function remove(item) {
+    var preNode = this.findPre(item)
+    if(preNode.next) {
+        preNode.next = preNode.next.next
+    }
+}
+function advance(n) {
+    var curNode = this.pos
+    var flag = false    //是否循环过一圈
+    while(n--) {
+        curNode = curNode.next
+        if(curNode.el === 'head'){
+            flag = true
+        }
+    }
+    this.pos = curNode
+    return flag
+}
+function show() {
+    return this.pos
+}
+
+var persons = new CLList()
+var start = 0
+while(start < 10){
+    ++start
+    persons.insert(start, start-1)
+}
+
+function kill(persons, m) {
+    let temp
+    let i = 0;
+    do{
+        temp = persons.show()
+        if(persons.advance(m) === true){
+            console.log(persons.show())
+            persons.advance(1)
+        }
+        if(persons.show().el !== 'head'){
+            persons.remove(persons.show().el) 
+            console.log(persons.show())
+        }
+    }while(temp.el !== persons.show().el)
+    persons.display()
+}
+kill(persons, 3)
+
+    </script>
+</body>
+</html>
