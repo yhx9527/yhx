@@ -1,0 +1,67 @@
+<html>
+
+<head>
+<title>我的第一个 HTML 页面</title>
+<style>
+.parent{
+
+}
+.parent:after{
+clear:both;
+content:'';
+display:block;
+}
+.float1{
+width:50px;
+height:50px;
+background:red;
+float:left;
+}
+.float2{
+width:100px;
+height:30px;
+background:green;
+
+}
+.float2-1{
+width:100px;
+height:30px;
+background:green;
+float:left;
+}
+.clear1{
+clear:both;
+height:0;
+}
+</style>
+</head>
+
+<body>
+<div class="">
+<div class="float1"></div>
+<div class="float2">12</div>
+<div>adfasdfasfdafadf</div> <!--对于有内容的标签里面的内容他是紧贴着浮动元素的而不会在底下-->
+</div>
+<br/>
+<!--清除浮动解决的是高度塌陷问题,clear是用在需要移动的元素上，如下文的div.clear1和parent.after-->
+<div class="">  <!--插入空标签-->
+<div class="float1"></div>
+<div class="float2-1">12</div>
+<div class="clear1"></div>
+</div>
+<div>123</div>
+<br/>
+<div class="" style="overflow:auto;zoom:1;"> <!--使父容器形成BFC，计算高度时包含浮动元素-->
+<div class="float1"></div>
+<div class="float2-1">12</div>
+</div>
+<div>123</div>
+</br>
+<div class="parent"> <!--给父元素插入after伪类，用伪类来清除浮动-->
+<div class="float1"></div>
+<div class="float2-1">12</div>
+</div>
+<div>123</div>
+</body>
+
+</html>

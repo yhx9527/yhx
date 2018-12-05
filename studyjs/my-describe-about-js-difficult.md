@@ -1,3 +1,6 @@
+
+
+----------
 js中对象可以任意扩展属性的，引用类型都是对象
 只有函数才有prototype这个属性
 __proto__这个属性来自Object.prototype

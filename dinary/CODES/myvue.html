@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1 id="name">{{name}}</h1>
+</body>
+<script type="text/javascript" src='./twoWayBind.js'></script>
+<script type="text/javascript">
+    var ele = document.querySelector('#name');
+    var selfVue = new SelfVue({
+        name: 'hello world'
+    }, ele, 'name');
+
+    window.setTimeout(function() {
+        selfVue.name = 'canfoo';
+    },2000)
+</script>
+</html>
