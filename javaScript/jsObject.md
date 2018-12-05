@@ -22,10 +22,10 @@
 ​	// 创建一个原型为null的空对象
 ​	o = Object.create(null);
 ​	
-	o = {};
-	// 以字面量方式创建的空对象就相当于:
-	o = Object.create(Object.prototype);
-	
+​	o = {};
+​	// 以字面量方式创建的空对象就相当于:
+​	o = Object.create(Object.prototype);
+​	
 	o = Object.create(Object.prototype, {
   	// foo会成为所创建对象的数据属性
   	foo: { 
@@ -66,7 +66,7 @@
 	me.printIntroduction();
 	// expected output: "My name is Matthew. Am I human? true"
 
-###Object.assign(目标对象，一到多个源对象)
+Object.assign(目标对象，一到多个源对象)
 ------
 
 用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。  
@@ -115,12 +115,12 @@ Object.assign()拷贝的是属性值。假如源对象的属性值是一个指�
 ​    var v3 = 10;
 ​    var v4 = Symbol("foo")
 ​    
-    var obj = Object.assign({}, v1, null, v2, undefined, v3, v4); 
-    // 原始类型会被包装，null 和 undefined 会被忽略。
-    // 注意，只有字符串的包装对象才可能有自身可枚举属性。
-    console.log(obj); // { "0": "a", "1": "b", "2": "c" }
+​    var obj = Object.assign({}, v1, null, v2, undefined, v3, v4); 
+​    // 原始类型会被包装，null 和 undefined 会被忽略。
+​    // 注意，只有字符串的包装对象才可能有自身可枚举属性。
+​    console.log(obj); // { "0": "a", "1": "b", "2": "c" }
 
-###Object.freeze(要被冻结的对象)
+Object.freeze(要被冻结的对象)
 ------
 
   Object.isFrozen(obj); 检查对象是否被冻结   
@@ -129,14 +129,14 @@ Object.assign()拷贝的是属性值。假如源对象的属性值是一个指�
 注意：  
 数据属性的值不可更改，访问器属性（有getter和setter）也同样（但由于是函数调用，给人的错觉是还是可以修改这个属性）。如果一个属性的值是个对象，则这个对象中的属性是可以修改的，除非它也是个冻结对象。数组作为一种对象，被冻结，其元素不能被修改。没有数组元素可以被添加或移除。
 
-###Object.seal(要被密封的对象)
+Object.seal(要被密封的对象)
 -----
   Object.isSealed(obj) 检查对象是否被密封  
   密封一个对象会让这个对象变的不能添加新属性，且所有已有属性会变的不可配置。属性不可配置的效果就是属性变的不可删除，以及一个数据属性不能被重新定义成为访问器属性，或者反之。  
   但属性的值仍然可以修改。  
   该方法返回被密封对象的引用。
 
-###Object.preventExtensions(要被设为不可扩展的对象)
+Object.preventExtensions(要被设为不可扩展的对象)
 -------  
   Object.isExtensible(obj)  //判断对象是否可扩展  
 让一个对象变的不可扩展，也就是永远不能再添加新的属性，一旦使其不可扩展，就无法再对象进行扩展。  
