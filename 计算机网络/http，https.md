@@ -1,4 +1,4 @@
-# 关于http，https
+# 关于http
 
 ### 含义
 
