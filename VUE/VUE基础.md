@@ -1,5 +1,41 @@
 # VUE基础
 
+### 生命周期
+
+- beforeCreate
+
+完成实例初始化，但还没进行数据绑定及dom节点挂载，即data和$el为undefined
+
+- created
+
+已完成数据绑定，属性和方法的运算，watch/event事件回调。还没挂载dom节点，即data有值，$el为undefined
+
+- beforeMount
+
+对template模版进行编译解析，生成虚拟dom,还没渲染
+
+- mounted
+
+已将虚拟dom转成了真实的dom，并挂载到页面上了
+
+- beforeUpdate
+
+数据更新时，新旧虚拟dom通过diff算法得出补丁，在打补丁之前
+
+- updated
+
+通过patch给真实的dom打上补丁，更新完毕，页面相关dom已发生变化
+
+- beforeDestroy
+
+实例销毁之前调用
+
+- destroyed
+
+vue实例销毁之后调用，实例的所有东西被解绑，子实例也被销毁，dom还存在
+
+
+
 ### 单向数据流
 
 - 定义
@@ -49,3 +85,76 @@
   //上行代码是下行的语法糖
   <currency-input :value="price" @input="price = arguments[0]"></currency-input>
   ```
+
+### Mixin混合
+
+可以用来封装一段在应用的其他组件中都可以使用的函数
+
+混合里的首先被注册，然后是组件上的被注册，保证组件有最后发言权
+
+```
+//mixin
+const hi = {
+  methods: {
+    sayHello: function() {
+      console.log('hello from mixin!')
+    }
+  },
+  mounted() {
+    this.sayHello()
+  }
+}
+
+//vue instance or component
+new Vue({
+  el: '#app',
+  mixins: [hi],
+  methods: {
+    sayHello: function() {
+      console.log('hello from Vue instance!')
+    }
+  },
+  mounted() {
+    this.sayHello()
+  }
+})
+
+// Output in console
+> hello from Vue instance!
+> hello from Vue instance!
+//输出两句是因为混合中被重写了而非销毁
+```
+
+### 组件通信
+
+- 父组件传递数据给子组件，子组件通过props接收
+- 子组件传递数据给父组件，通过事件触发的形式
+- 通过中央事件总线，在全局创建一个vue实例，然后使用该实例的$emit方法，实现任意组件间的通信
+
+```
+let Hub = new Vue(); //创建事件中心,注意Hub要放在全局
+组件1触发：
+<div @click="eve"></div>methods: { eve() { Hub.$emit('change','hehe'); //Hub触发事件 }}
+组件2接收:
+<div></div>created() { Hub.$on('change', () => { //Hub接收事件 this.msg = 'hehe'; });}
+```
+
+- 使用$refs，为子组件指定一个ref索引，然后父组件可通过$refs直接访问子组件
+
+```
+<div id="parent">
+  <user-profile ref="profile"></user-profile>
+</div>
+
+var parent = new Vue({ el: '#parent' })
+// 访问子组件
+var child = parent.$refs.profile
+
+```
+
+
+
+### 参考链接
+
+1. [在 Vue.js 中使用Mixin —— CSS-Tricks](https://zcfy.cc/article/using-mixins-in-vue-js-css-tricks-3257.html)
+2. [vue2.0父子组件间通信](https://www.jianshu.com/p/6389d424965f)
