@@ -5,7 +5,7 @@
     var obj = {
       foo: 1,
       get bar() {
-    return 2;
+    	return 2;
       },
       set bar(val){
     	this.foo = val;
@@ -26,7 +26,7 @@
 ​	// 以字面量方式创建的空对象就相当于:
 ​	o = Object.create(Object.prototype);
 ​	
-	o = Object.create(Object.prototype, {
+​	o = Object.create(Object.prototype, {
   	// foo会成为所创建对象的数据属性
   	foo: { 
 ​    	writable:true,
