@@ -12,6 +12,9 @@ var arr3 = new Array(2)
 arr3[0] = "William"
 arr3[1] = "Franklin"
 document.write(a.concat(arr3))
+
+// 不带参数实现数组的拷贝
+var arr = a.concat()
 ```
 
 - arr.join('.')
