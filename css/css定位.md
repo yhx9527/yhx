@@ -104,3 +104,9 @@
 - position:static
 
   没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）
+
+
+
+### 浮动元素
+
+脱离文档流，向左或向右平移直到碰到所处的容器的边框或者另一个浮动元素为止。float会修改display，大部分都是改成了block，即使用了浮动后变成了block元素（对于flex，inline-flex布局的元素浮动是不起作用的）

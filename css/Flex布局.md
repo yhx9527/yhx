@@ -4,8 +4,8 @@
 
 ### flex：flex-grow  flex-shrink  flex-basis
 
-- flex-grow控制当容器内有剩余空间时如何放大，按比例分配剩余空间
-- flex-shrink控制当容器小到无法容纳初始里面的大小时，如何缩小，按比例分配缩小空间
+- flex-grow控制当容器内有剩余空间时如何放大，按比例分配剩余空间，初始值为0
+- flex-shrink控制当容器小到无法容纳初始里面的大小时，如何缩小，按比例分配缩小空间，初始值为1
 - flex-basis规定flex-item的初始大小
 
 
