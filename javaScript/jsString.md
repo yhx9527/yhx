@@ -1,5 +1,7 @@
 # js字符串处理常用函数分类
 
+**'I-never-forget-this-question'.replace(/-\w/g, function(item){return item.substr(1,1).toUpperCase()})**
+
 ==es6==中的方法高亮了
 
 #### 单个字符

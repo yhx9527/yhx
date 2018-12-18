@@ -42,7 +42,7 @@
 
 
 
-- 利用表格:外层display设为table，内层设为table-cell并设置vertical-align:middle
+- 利用表格:外层display设为table，内层设为table-cell并设置vertical-align:middle，因为vertical-align:middle对table元素垂直居中起作用（**可用于行内元素**）
 
 ```
 <div style="display:table">
@@ -104,6 +104,39 @@
 - position:static
 
   没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）
+
+- position: inherit
+
+  从父元素中继承
+
+- position：sticky
+
+  设置left，right，top，bottom之一为阈值，未达到阈值前为relative定位，达到阈值后为fixed定位
+
+  注意：父元素overflow不为hidden，父元素定位不为相对定位或绝对定位（否则元素相对父元素定位，而非相对于视口）
+
+  ```
+      <div class="container">
+          <div class="sticky">hhh</div>
+          <div class="sticky">www</div>
+          <div class="sticky">yyy</div>
+          <div class="sticky">xxx</div>
+      </div>
+      
+           .container{
+              height: 200px;
+              background: red;
+              overflow: auto;
+          }
+          .sticky{
+              position: sticky;
+              height: 50px;
+              margin-bottom: 50px;
+              background: yellow;
+              top: 0;
+          }
+  ```
+
 
 
 

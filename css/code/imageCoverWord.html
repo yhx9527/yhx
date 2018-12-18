@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图片覆盖文本</title>
+    <style type="text/css">
+        h1 {
+  width:200px;
+  height:100px;
+  position:relative;
+}
+h1 span {
+  background: url(../resource/stacking1.png) no-repeat;
+  position: absolute;
+  width:100%;
+  height:100%;
+}
+
+h2 {
+    background: url(../resource/stacking1.png) no-repeat;
+    width: 200px;
+    height: 100px;
+}
+h2 span {
+    display: none;
+}
+
+h3 {
+    text-intent: -9000em;
+    background: url(../resource/stacking1.png) no-repeat;
+    width: 200px;
+    height: 100px;
+}
+h4{
+    content: url(../resource/stacking1.png);
+}
+
+    </style>
+</head>
+<body>
+    <h1>
+  <span></span>
+  Replacement Text Is Here.
+</h1>
+
+<h2>
+    <span>
+    Replacement Text Is Here.
+    </span>
+</h2>
+
+<h3>
+    Replacement Text Is Here.
+</h3>
+
+<h4>
+    Replacement Text Is Here.
+</h4>
+</body>
+</html>
