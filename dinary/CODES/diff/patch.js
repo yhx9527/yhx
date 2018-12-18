@@ -1,13 +1,13 @@
 import {render, Elemen, setAttr} from './element'
 let allPathes;
-let index = 0;//默认哪个需要打补丁
+let patchIndex = 0;//默认哪个需要打补丁
 function patch(node, patches){
     //给某个元素打补丁
     allPathes = patches;
     walk(node);
 }
 function walk(node){
-    let currentPatch = patches[index++];
+    let currentPatch = allPatches[patchIndex++];
     let childNodes = node.childNodes;
     childNodes.forEach(child=>walk(child));
     //从末尾开始打补丁
