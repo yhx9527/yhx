@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .wrap{
+            height:100px;
+            overflow: auto;
+            background: red;
+            position: relative;
+        }
+        .inner{
+            height: 200px;
+            background: black;
+        }
+        .inner1{
+            height: 50px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="inner"></div>
+        <div class="inner1"></div>
+    </div>
+    <script type="text/javascript">
+            var wrap=document.getElementsByClassName('wrap')[0];
+            console.log('hhh')
+            var inner=document.getElementsByClassName('inner')[0];
+            var inner1=document.getElementsByClassName('inner1')[0];
+            console.log('wrap里面的滚动内容高度',wrap.scrollHeight)
+                console.log('wrap里面已被滚动到上方不可见地方的内容高度',wrap.scrollTop)
+                console.log('inner1据父元素的上边界距离',inner1.offsetTop)
+            wrap.onscroll=function(){
+                console.log('wrap里面的滚动内容高度',wrap.scrollHeight)
+                console.log('wrap里面已被滚动到上方不可见地方的内容高度',wrap.scrollTop)
+                console.log('inner1据根元素的上边界距离',inner1.offsetTop)
+                //这里需要注意要设置wrap的position不为static，则inner1的offsetTop才是距离wrap上边界的距离，否则则是距离body的距离（包括body的margin在内的）
+                if(inner1.offsetTop < wrap.clientHeight+wrap.scrollTop){
+                    alert('inner1可见了')
+                }
+            }
+            
+            // console.log(inner1.scrollTop)
+            // console.log(wrap.)
+    </script>
+</body>
+</html>
