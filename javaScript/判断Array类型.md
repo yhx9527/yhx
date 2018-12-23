@@ -20,3 +20,7 @@ Array.isArray(arr)
 
 Array.prototype.isPrototypeOf(arr)
 
+### 使用Object.getPrototypeOf()
+
+Object.getPrototypeOf(arr) == Array.prototype
+

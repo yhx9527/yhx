@@ -43,7 +43,7 @@ var arr = a.concat()
 
 删除并返回数组中的第一个元素
 
-- arr.unshift()
+- arr.unshift(item1,item2)
 
 向数组开头添加一个或多个元素，并返回新的长度
 

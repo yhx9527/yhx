@@ -2,8 +2,19 @@
 <html>
 <head>
     <title>image的title和alt</title>
+    <script type="text/javascript">
+        window.onload= function(){
+            function func(e) {
+                // body...
+                console.log(e)
+                e.preventDefault();
+            }
+        }
+    </script>
 </head>
 <body>
     <img src="./code/1.png" alt="我是图片占位符" title="鼠标移上来看看">
+    <a href="javascript:;">hh</a> 
+    <a href="www.baidu.com" onclick="func()">hhhhh</a> 
 </body>
 </html>
