@@ -12,6 +12,7 @@ Set集合中没有重复的值
   使用：for(let item of s.keys())
 - 去除数组重复成员: [...new Set(array)],Array.from(new Set(array))
 - 注意事项: set中NaN是等于自身的，5和‘5’是不等的（即===关系）
+- 清空  s.clear()
 
 ### WeakSet
 
@@ -23,3 +24,42 @@ const s=new WeakSet([[1,2],[3,4]])
 - 增：s.add({})
 - 删: s.delete({})
 - 查：s.has({})
+
+
+
+### Map
+
+- 创建 const map=new Map() ;  const map1=new Map([['key','value']])
+- 增 map.set('key', 'value')
+- 删 map.delete('key')
+- 查 map.has('key')
+- 取 map.get('key')
+- 长度 map.size
+- 删除所有成员 map.clear()
+- 遍历 使用for...of..
+  - map.keys()
+  - map.values()
+  - map.entries()
+  - map.forEach(和数组一样的回调函数，指定对应的this)
+
+### WeakMap
+
+WeakMap的键值必须为对象
+
+- 增：wm.set()
+- 删: wm.delete()
+- 查：wm.has()
+- 获取: wm.get()
+
+
+
+
+
+
+
+
+
+
+
+
+
