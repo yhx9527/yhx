@@ -1,0 +1,4 @@
+
+function jsonp(url, callback){
+    
+}
