@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>请求</title>
+</head>
+<body>
+    <form id="registerForm" action="">
+        用户名: 
+        <input type="text" name="username" value="" size="20">
+    <br/>密码: 
+        <input type="password" name="password" value="" size="20">
+    <br/>
+    </form> 
+    <button id="register">注册</button>
+
+     <form id="loginForm" action="">
+        用户名: 
+        <input type="text" name="username" value="" size="20">
+    <br/>密码: 
+        <input type="password" name="password" value="" size="20">
+    <br/>
+    </form> 
+    <button id="login">登录</button>
+
+    <form id="searchForm" action="">
+        微博UID: 
+        <input type="text" name="uid" value="" size="20">
+    <br/>
+    </form> 
+    <button id="search">爬取</button>
+    <br/>
+    <button id="checkSearch">检查是否爬完</button>
+    <br/>
+    <button id="setFlag">重置flag以便重新爬取</button>
+    <br/>
+    <button id="analysis">开始分析数据</button>
+    <br/>
+    <button id="checkAnalysis">检查是否分析完</button>
+    <div id="group"></div>
+    <script type="text/javascript" src="./jquery3.3.1-min.js"></script>
+    <script type="text/javascript" src="course3_req.js"></script>
+</body>
+</html>
